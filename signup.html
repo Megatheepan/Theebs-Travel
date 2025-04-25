@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up to start planning your dream vacations and accessing exclusive deals.">
+    <link rel="stylesheet" href="reg.css"  />
+	<title>Sign Up - Travel With Us</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Create Your Account</h1>
+    </header>
+
+    <nav>
+	<div class="nav__logo"><img src="logo.jpeg" >MS TRAVELS</div>
+        <a href="index.html">Home</a>
+        
+    </nav>
+
+    <section>
+        <h2>Join Us</h2>
+        <p>Sign up to access exclusive travel deals and personalized trip planning.</p>
+        <form id="signupForm" action="signup.php" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+            <button type="submit">Sign Up</button>
+            <p id="error" class="error"></p>
+        </form>
+        <p>Already have an account? <a href="login.html" style=color:green;>Log in here</a>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Travel With Us. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+           // event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorElement = document.getElementById('error');
+
+            if (name.length < 3) {
+                errorElement.textContent = 'Name must be at least 3 characters long.';
+            } else if (!email.includes('@')) {
+                errorElement.textContent = 'Please enter a valid email address.';
+            } else if (password.length < 6) {
+                errorElement.textContent = 'Password must be at least 6 characters long.';
+            } else if (password !== confirmPassword) {
+                errorElement.textContent = 'Passwords do not match.';
+            } else {
+                errorElement.textContent = '';
+                alert('Sign up successful!'); 
+				// window.location.href = 'login.html';
+               
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+signup.php loaded
+Connected to DB
+signup.php loaded
+Connected to DB

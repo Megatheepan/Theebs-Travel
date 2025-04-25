@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to access your personalized travel plans and bookings.">
+	<link rel="stylesheet" href="reg.css"  />
+    <title>Login - Travel With Us</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Login to Your Account</h1>
+    </header>
+
+    <nav>
+	<div class="nav__logo"><img src="logo.jpeg" >MS TRAVELS</div>
+        <a href="index.html">Home</a>
+       
+    </nav>
+
+    <section>
+        <h2>Welcome Back</h2>
+        <p>Please log in to access your personalized travel dashboard.</p>
+        <form id="loginForm" action="login.php" method="post">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+            <p id="error" class="error"></p>
+        </form>
+        <p>Don't have an account? <a href="signup.html" style=color:green;>Sign up here</a>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Travel With Us. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('error');
+
+          
+            if (!email.includes('@') || password.length < 6) {
+                errorElement.textContent = 'Please enter a valid email and a password with at least 6 characters.';
+            } else {
+                errorElement.textContent = '';
+                alert('Login successful!');
+				 window.location.href = 'index.html';
+                
+            }
+        });
+    </script>
+</body>
+</html>
